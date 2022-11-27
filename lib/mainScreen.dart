@@ -10,7 +10,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  File selectedImage;
+  late File selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +174,7 @@ class _MainScreenState extends State<MainScreen> {
               if (selectedImage != null) {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => HasilAnalisa(
-                          selectedImage: this.selectedImage,
+                         this.selectedImage,
                         )));
               }
             },
@@ -204,7 +204,7 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => HasilAnalisa(
-                      selectedImage: this.selectedImage,
+                     this.selectedImage,
                     ),
                   ),
                 );

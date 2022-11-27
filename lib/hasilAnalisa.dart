@@ -6,7 +6,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:tflite/tflite.dart';
 
 class HasilAnalisa extends StatefulWidget {
-  HasilAnalisa({this.selectedImage});
+  HasilAnalisa(this.selectedImage);
   final File selectedImage;
 
   @override
@@ -92,8 +92,8 @@ class _HasilAnalisaState extends State<HasilAnalisa> {
                       return Column(
                         children: <Widget>[
                           Shimmer.fromColors(
-                            baseColor: Colors.grey[300],
-                            highlightColor: Colors.grey[100],
+                            baseColor: (Colors.grey[300])!,
+                            highlightColor: (Colors.grey[100])!,
                             child: Container(
                               margin:
                                   EdgeInsets.only(top: 10, left: 30, right: 30),
@@ -109,8 +109,8 @@ class _HasilAnalisaState extends State<HasilAnalisa> {
                             ),
                           ),
                           Shimmer.fromColors(
-                              baseColor: Colors.grey[300],
-                              highlightColor: Colors.grey[100],
+                              baseColor: (Colors.grey[300])!,
+                              highlightColor: (Colors.grey[100])!,
                               child: Container(
                                 color: Colors.grey,
                                 margin: EdgeInsets.only(
@@ -137,8 +137,9 @@ class _HasilAnalisaState extends State<HasilAnalisa> {
                           padding:
                               EdgeInsets.only(top: 10, left: 10, right: 10),
                           child: CustomText(
-                            text:
-                                "${snapshot.data[0]}%" + " " + snapshot.data[1],
+                            text: "${snapshot.data![0]}%" +
+                                " " +
+                                snapshot.data![1],
                             inherit: false,
                             fontWeight: FontWeight.bold,
                             fontSize: 28.0,
@@ -151,7 +152,7 @@ class _HasilAnalisaState extends State<HasilAnalisa> {
                               EdgeInsets.only(top: 10, left: 30, right: 30),
                           child: Column(
                             children: <Widget>[
-                              snapshot.data[1] == "DIDUGA MELANOMA"
+                              snapshot.data![1] == "DIDUGA MELANOMA"
                                   ? CustomText(
                                       text:
                                           "Melanoma merupakan kanker kulit paling berbahaya yang dapat menyerupai berbagai kondisi kulit seperti tahi lalat. Diharapkan untuk mengunjungi dokter kulit untuk diperiksakan.",
@@ -217,7 +218,7 @@ class _HasilAnalisaState extends State<HasilAnalisa> {
 
 class CustomText extends StatelessWidget {
   CustomText(
-      {@required this.text,
+      {this.text,
       this.style,
       this.inherit,
       this.fontFamily,
@@ -228,24 +229,24 @@ class CustomText extends StatelessWidget {
       this.textAlign,
       this.maxLines});
 
-  final String text;
-  final Widget style;
-  final bool inherit;
-  final String fontFamily;
-  final double fontSize;
-  final FontWeight fontWeight;
-  final double letterSpacing;
-  final Color color;
-  final TextAlign textAlign;
-  final int maxLines;
+  final String? text;
+  final Widget? style;
+  final bool? inherit;
+  final String? fontFamily;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  final double? letterSpacing;
+  final Color? color;
+  final TextAlign? textAlign;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
+    return Text(text!,
         textAlign: textAlign,
         maxLines: maxLines,
         style: TextStyle(
-          inherit: inherit,
+          inherit: inherit!,
           fontFamily: fontFamily,
           fontSize: fontSize,
           fontWeight: fontWeight,

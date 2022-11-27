@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:melanoma/main_menu.dart';
 import 'hasilAnalisa.dart';
 import 'informasiMelanoma.dart';
 import 'kontakDokter.dart';
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => MainScreen(),
-        '/hasilAnalisa': (context) => HasilAnalisa(),
+        // '/': (context) => MainScreen(),
+        '/': (context) => MainMenu(),
         '/informasiMelanoma': (context) => InformasiMelanoma(),
         '/kontakDokter': (context) => KontakDokter(),
       },
